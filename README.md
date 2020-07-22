@@ -1,0 +1,2 @@
+# MobCoins
+ MobCoins Spigot Plugin

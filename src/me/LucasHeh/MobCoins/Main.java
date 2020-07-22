@@ -1,0 +1,69 @@
+package me.LucasHeh.MobCoins;
+
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.RegisteredServiceProvider;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import me.LucasHeh.MobCoins.Commands.Give;
+import me.LucasHeh.MobCoins.Commands.TabComplete;
+import me.LucasHeh.MobCoins.Listeners.MobDrop;
+import net.milkbowl.vault.economy.Economy;
+
+public class Main extends JavaPlugin{
+	
+	private static Main instance;
+	private Utils utils;
+	private Economy economy;
+	
+	private Chances mobChances;
+	
+	public void onEnable() {
+		instance = this;
+		mobChances = new Chances();
+		
+		new Give(this);
+		getCommand("mobcoins").setTabCompleter(new TabComplete());
+		
+		this.getServer().getPluginManager().registerEvents(new MobDrop(), this);
+		
+		if(!setupEconomy()) {
+			this.getLogger().severe("Disabled due to no Vault");
+			Bukkit.getPluginManager().disablePlugin(this);
+			return;
+		}
+		
+	}
+	
+	public void onDisable() {
+		
+	}
+	
+	private boolean setupEconomy() {
+		if(Bukkit.getPluginManager().getPlugin("Vault") == null)
+			return false;
+		
+		RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
+		if(rsp == null)
+			return false;
+		
+		economy = rsp.getProvider();
+		return economy != null;
+	}
+	
+	public static Main getInstance() {
+		return instance;
+	}
+
+	public Utils getUtils() {
+		return utils;
+	}
+
+	public Economy getEconomy() {
+		return economy;
+	}
+
+	public Chances getMobChances() {
+		return mobChances;
+	}
+
+}
