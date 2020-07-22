@@ -1,10 +1,12 @@
-package me.LucasHeh.MobCoins;
+package me.LucasHeh.MobCoins.Listeners;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+
+import me.LucasHeh.MobCoins.Main;
 
 public class OnClick implements Listener{
 	
