@@ -7,6 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import me.LucasHeh.MobCoins.Commands.Give;
 import me.LucasHeh.MobCoins.Commands.TabComplete;
 import me.LucasHeh.MobCoins.Listeners.MobDrop;
+import me.LucasHeh.MobCoins.Listeners.OnClick;
 import net.milkbowl.vault.economy.Economy;
 
 public class Main extends JavaPlugin{
@@ -25,7 +26,7 @@ public class Main extends JavaPlugin{
 		getCommand("mobcoins").setTabCompleter(new TabComplete());
 		
 		this.getServer().getPluginManager().registerEvents(new MobDrop(), this);
-		this.getServer().getPluginManager().registerEvents(new OnClick, this);
+		this.getServer().getPluginManager().registerEvents(new OnClick(), this);
 		
 		if(!setupEconomy()) {
 			this.getLogger().severe("Disabled due to no Vault");
