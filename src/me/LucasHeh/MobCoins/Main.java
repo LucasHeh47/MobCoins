@@ -25,6 +25,7 @@ public class Main extends JavaPlugin{
 		getCommand("mobcoins").setTabCompleter(new TabComplete());
 		
 		this.getServer().getPluginManager().registerEvents(new MobDrop(), this);
+		this.getServer().getPluginManager().registerEvents(new OnClick, this);
 		
 		if(!setupEconomy()) {
 			this.getLogger().severe("Disabled due to no Vault");
