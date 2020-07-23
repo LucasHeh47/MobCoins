@@ -12,12 +12,17 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import com.iridium.iridiumskyblock.IridiumSkyblock;
+import com.iridium.iridiumskyblock.IslandManager;
+
 import net.milkbowl.vault.economy.Economy;
 
 public class Utils {
 	
 	private Main main = Main.getInstance();
 	private Economy economy = main.getEconomy();
+	private IridiumSkyblock iridium = main.getIridium();
+	private IslandManager islandManager = main.getIslandManager();
 	
 	private HashMap<String, Integer> mobCoinMap;
 	
@@ -35,13 +40,6 @@ public class Utils {
 
 	public Economy getEconomy() {
 		return economy;
-	}
-	
-	public List<String> listTranslate(List<String> list){
-		List<String> converted = new ArrayList<String>();
-		for(String str : list)
-			converted.add(ChatColor.translateAlternateColorCodes('&', str));
-		return converted;
 	}
 	
 	public ItemStack mobCoinItem() {
@@ -81,6 +79,22 @@ public class Utils {
 		item.setItemMeta(meta);
 		item.setAmount(amt);
 		inv.setItem(slot, item);
+	}
+	
+	public List<String> listTranslate(List<String> list){
+		List<String> converted = new ArrayList<String>();
+		for(String str : list) {
+			converted.add(ChatColor.translateAlternateColorCodes('&', str));
+		}
+		return converted;
+	}
+
+	public IridiumSkyblock getIridium() {
+		return iridium;
+	}
+
+	public IslandManager getIslandManager() {
+		return islandManager;
 	}
 
 }

@@ -4,6 +4,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.iridium.iridiumskyblock.IridiumSkyblock;
+import com.iridium.iridiumskyblock.IslandManager;
+
 import me.LucasHeh.MobCoins.Commands.Give;
 import me.LucasHeh.MobCoins.Commands.TabComplete;
 import me.LucasHeh.MobCoins.Listeners.MobDrop;
@@ -15,6 +18,8 @@ public class Main extends JavaPlugin{
 	private static Main instance;
 	private Utils utils;
 	private Economy economy;
+	private IridiumSkyblock iridium = IridiumSkyblock.getInstance();
+	private IslandManager islandManager = IridiumSkyblock.getIslandManager();
 	
 	private Chances mobChances;
 	
@@ -66,6 +71,14 @@ public class Main extends JavaPlugin{
 
 	public Chances getMobChances() {
 		return mobChances;
+	}
+
+	public IridiumSkyblock getIridium() {
+		return iridium;
+	}
+
+	public IslandManager getIslandManager() {
+		return islandManager;
 	}
 
 }

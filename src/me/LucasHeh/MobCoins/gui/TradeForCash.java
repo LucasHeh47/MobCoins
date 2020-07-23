@@ -22,7 +22,7 @@ public class TradeForCash {
 	
 	public void openInv(Player p) {
 		Inventory inv = Bukkit.createInventory(p, 27, ChatColor.translateAlternateColorCodes('&', "&6MobCoins &7» &2Cash"));
-		for(int i = 27; i < 27; i++) {
+		for(int i = 0; i < 27; i++) {
 			switch(i) {
 				case 9:
 					utils.itemToInventoryAmt(Material.PAPER, ChatColor.GREEN + String.valueOf(cashPerCoin), 1, null, inv, i);
@@ -37,7 +37,7 @@ public class TradeForCash {
 					utils.itemToInventoryAmt(Material.PAPER, ChatColor.GREEN + String.valueOf(cashPerCoin*32), 32, null, inv, i);
 					break;
 				case 17:
-					utils.itemToInventory(Material.PAPER, ChatColor.GREEN + String.valueOf(cashPerCoin*64), null, inv, i);
+					utils.itemToInventoryAmt(Material.PAPER, ChatColor.GREEN + String.valueOf(cashPerCoin*64), 64, null, inv, i);
 					break;
 				default:
 					utils.itemToInventory(Material.BLACK_STAINED_GLASS_PANE, " ", null, inv, i);
