@@ -71,5 +71,16 @@ public class Utils {
 		item.setItemMeta(meta);
 		inv.setItem(slot, item);
 	}
+	
+	public void itemToInventoryAmt(Material mat, String displayName, int amt, List<String> lore, Inventory inv, int slot) {
+		ItemStack item = new ItemStack(mat);
+		ItemMeta meta = item.getItemMeta();
+		meta.setDisplayName(displayName);
+		if(lore != null)
+			meta.setLore(listTranslate(lore));
+		item.setItemMeta(meta);
+		item.setAmount(amt);
+		inv.setItem(slot, item);
+	}
 
 }
