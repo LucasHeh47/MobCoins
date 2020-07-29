@@ -30,7 +30,7 @@ public class TradeForIslandCrystalInvListener {
 		
 		switch(slot) {
 			case 9:
-				if(map.get(utils.getUUID(p)) >= 1) {
+				if(map.get(utils.getPlayersUUID(p)) >= 1) {
 					if(User.getUser(p).getIsland() == null) {
 						p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&lPrimalMC » &cNot on an island!"));
 						break;
@@ -42,7 +42,7 @@ public class TradeForIslandCrystalInvListener {
 				}
 				break;
 			case 11:
-				if(map.get(utils.getUUID(p)) >= 8) {
+				if(map.get(utils.getPlayersUUID(p)) >= 8) {
 					if(User.getUser(p).getIsland() == null) {
 						p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&lPrimalMC » &cNot on an island!"));
 						break;
@@ -54,7 +54,7 @@ public class TradeForIslandCrystalInvListener {
 				}
 				break;
 			case 13:
-				if(map.get(utils.getUUID(p)) >= 16) {
+				if(map.get(utils.getPlayersUUID(p)) >= 16) {
 					if(User.getUser(p).getIsland() == null) {
 						p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&lPrimalMC » &cNot on an island!"));
 						break;
@@ -66,7 +66,7 @@ public class TradeForIslandCrystalInvListener {
 				}
 				break;
 			case 15:
-				if(map.get(utils.getUUID(p)) >= 32) {
+				if(map.get(utils.getPlayersUUID(p)) >= 32) {
 					if(User.getUser(p).getIsland() == null) {
 						p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&lPrimalMC » &cNot on an island!"));
 						break;
@@ -78,7 +78,7 @@ public class TradeForIslandCrystalInvListener {
 				}
 				break;
 			case 17:
-				if(map.get(utils.getUUID(p)) >= 64) {
+				if(map.get(utils.getPlayersUUID(p)) >= 64) {
 					if(User.getUser(p).getIsland() == null) {
 						p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&lPrimalMC » &cNot on an island!"));
 						break;
