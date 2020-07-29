@@ -44,6 +44,7 @@ public class TradeForExp {
 				break;
 			}
 		}
+		p.openInventory(inv);
 	}
 	
 	public int getExpPerCoin() {

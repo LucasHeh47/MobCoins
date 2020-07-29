@@ -44,6 +44,7 @@ public class TradeForIslandCrystal {
 				break;
 			}
 		}
+		p.openInventory(inv);
 	}
 	
 	public int getCrystalsPerCoin() {

@@ -11,6 +11,7 @@ import me.LucasHeh.MobCoins.Commands.Give;
 import me.LucasHeh.MobCoins.Commands.TabComplete;
 import me.LucasHeh.MobCoins.Listeners.MobDrop;
 import me.LucasHeh.MobCoins.Listeners.OnClick;
+import me.LucasHeh.MobCoins.Listeners.Inventory.MainInvListener;
 import net.milkbowl.vault.economy.Economy;
 
 public class Main extends JavaPlugin{
@@ -30,6 +31,7 @@ public class Main extends JavaPlugin{
 		new Give(this);
 		getCommand("mobcoins").setTabCompleter(new TabComplete());
 		
+		this.getServer().getPluginManager().registerEvents(new MainInvListener(), this);
 		this.getServer().getPluginManager().registerEvents(new MobDrop(), this);
 		this.getServer().getPluginManager().registerEvents(new OnClick(), this);
 		

@@ -31,6 +31,7 @@ public class OnClick implements Listener{
 				ItemStack item = utils.mobCoinItem();
 				item.setAmount(amount);
 				p.getInventory().removeItem(item);
+				utils.getMobCoinMap().put(p.getUniqueId().toString(), utils.getMobCoinMap().get(p.getUniqueId().toString())+amount);
 				p.sendMessage(ChatColor.translateAlternateColorCodes('&', 
 						"&b&lPrimalMC » &7Redeemed &b" + amount + "&6 Mob Coins"));
 				return;

@@ -60,6 +60,10 @@ public class Utils {
 		return mobCoinMap;
 	}
 	
+	public String getUUID(Player p) {
+		return p.getUniqueId().toString();
+	}
+	
 	public void itemToInventory(Material mat, String displayName, List<String> lore, Inventory inv, int slot) {
 		ItemStack item = new ItemStack(mat);
 		ItemMeta meta = item.getItemMeta();

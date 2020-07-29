@@ -44,6 +44,7 @@ public class TradeForCash {
 					break;
 			}
 		}
+		p.openInventory(inv);
 	}
 
 	public double getCashPerCoin() {
