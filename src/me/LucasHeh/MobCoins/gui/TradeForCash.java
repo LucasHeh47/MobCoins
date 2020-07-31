@@ -25,19 +25,19 @@ public class TradeForCash {
 		for(int i = 0; i < 27; i++) {
 			switch(i) {
 				case 9:
-					utils.itemToInventoryAmt(Material.PAPER, ChatColor.GREEN + String.valueOf(cashPerCoin), 1, null, inv, i);
+					utils.itemToInventoryAmt(Material.SUNFLOWER, ChatColor.GREEN + String.valueOf(cashPerCoin), 1, null, inv, i);
 					break;
 				case 11:
-					utils.itemToInventoryAmt(Material.PAPER, ChatColor.GREEN + String.valueOf(cashPerCoin*8), 8, null, inv, i);
+					utils.itemToInventoryAmt(Material.SUNFLOWER, ChatColor.GREEN + String.valueOf(cashPerCoin*8), 8, null, inv, i);
 					break;
 				case 13:
-					utils.itemToInventoryAmt(Material.PAPER, ChatColor.GREEN + String.valueOf(cashPerCoin*16), 16, null, inv, i);
+					utils.itemToInventoryAmt(Material.SUNFLOWER, ChatColor.GREEN + String.valueOf(cashPerCoin*16), 16, null, inv, i);
 					break;
 				case 15:
-					utils.itemToInventoryAmt(Material.PAPER, ChatColor.GREEN + String.valueOf(cashPerCoin*32), 32, null, inv, i);
+					utils.itemToInventoryAmt(Material.SUNFLOWER, ChatColor.GREEN + String.valueOf(cashPerCoin*32), 32, null, inv, i);
 					break;
 				case 17:
-					utils.itemToInventoryAmt(Material.PAPER, ChatColor.GREEN + String.valueOf(cashPerCoin*64), 64, null, inv, i);
+					utils.itemToInventoryAmt(Material.SUNFLOWER, ChatColor.GREEN + String.valueOf(cashPerCoin*64), 64, null, inv, i);
 					break;
 				default:
 					utils.itemToInventory(Material.BLACK_STAINED_GLASS_PANE, " ", null, inv, i);

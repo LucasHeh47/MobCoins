@@ -25,40 +25,43 @@ public class MobDrop implements Listener{
 	public void onDrop(EntityDeathEvent e) {
 		if(e.getEntity() instanceof Player)
 			return;
+		Player p = e.getEntity().getKiller();
+		if(p == null)
+			return;
 		int result = random.nextInt(101);
 		if(e.getEntityType() == EntityType.BLAZE) {
 			if(result <= chances.getBLAZE()*multiplier) {
-				e.getEntity().getLocation().getWorld().dropItemNaturally(e.getEntity().getLocation(), utils.mobCoinItem());
+				e.getDrops().add(utils.mobCoinItem());
 				return;
 			}
 		} else if(e.getEntityType() == EntityType.ZOMBIE) {
 			if(result <= chances.getZOMBIE()*multiplier) {
-				e.getEntity().getLocation().getWorld().dropItemNaturally(e.getEntity().getLocation(), utils.mobCoinItem());
+				p.getInventory().addItem(utils.mobCoinItem());
 				return;
 			}
 		} else if(e.getEntityType() == EntityType.SKELETON) {
 			if(result <= chances.getSKELETON()*multiplier) {
-				e.getEntity().getLocation().getWorld().dropItemNaturally(e.getEntity().getLocation(), utils.mobCoinItem());
+				p.getInventory().addItem(utils.mobCoinItem());
 				return;
 			}
 		} else if(e.getEntityType() == EntityType.IRON_GOLEM) {
 			if(result <= chances.getIRON_GOLEM()*multiplier) {
-				e.getEntity().getLocation().getWorld().dropItemNaturally(e.getEntity().getLocation(), utils.mobCoinItem());
+				p.getInventory().addItem(utils.mobCoinItem());
 				return;
 			}
 		} else if(e.getEntityType() == EntityType.MUSHROOM_COW) {
 			if(result <= chances.getMOOSHROOM()*multiplier) {
-				e.getEntity().getLocation().getWorld().dropItemNaturally(e.getEntity().getLocation(), utils.mobCoinItem());
+				p.getInventory().addItem(utils.mobCoinItem());
 				return;
 			}
 		} else if(e.getEntityType() == EntityType.CREEPER) {
 			if(result <= chances.getCREEPER()*multiplier) {
-				e.getEntity().getLocation().getWorld().dropItemNaturally(e.getEntity().getLocation(), utils.mobCoinItem());
+				p.getInventory().addItem(utils.mobCoinItem());
 				return;
 			}
 		} else if(e.getEntityType() == EntityType.WITCH) {
 			if(result <= chances.getWITCH()*multiplier) {
-				e.getEntity().getLocation().getWorld().dropItemNaturally(e.getEntity().getLocation(), utils.mobCoinItem());
+				p.getInventory().addItem(utils.mobCoinItem());
 				return;
 			}
 		}

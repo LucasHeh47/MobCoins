@@ -7,11 +7,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.iridium.iridiumskyblock.IridiumSkyblock;
 import com.iridium.iridiumskyblock.IslandManager;
 
-import me.LucasHeh.MobCoins.Commands.Give;
+import me.LucasHeh.MobCoins.Commands.Commands;
 import me.LucasHeh.MobCoins.Commands.TabComplete;
 import me.LucasHeh.MobCoins.Listeners.MobDrop;
 import me.LucasHeh.MobCoins.Listeners.OnClick;
+import me.LucasHeh.MobCoins.Listeners.OnJoin;
 import me.LucasHeh.MobCoins.Listeners.Inventory.MainInvListener;
+import me.LucasHeh.MobCoins.Listeners.Inventory.TradeForCashInvListener;
+import me.LucasHeh.MobCoins.Listeners.Inventory.TradeForExpInvListener;
+import me.LucasHeh.MobCoins.Listeners.Inventory.TradeForIslandCrystalInvListener;
 import net.milkbowl.vault.economy.Economy;
 
 public class Main extends JavaPlugin{
@@ -27,18 +31,27 @@ public class Main extends JavaPlugin{
 	public void onEnable() {
 		instance = this;
 		mobChances = new Chances();
+		utils = new Utils();
 		
-		new Give(this);
+		new Commands(this);
 		getCommand("mobcoins").setTabCompleter(new TabComplete());
 		
 		this.getServer().getPluginManager().registerEvents(new MainInvListener(), this);
 		this.getServer().getPluginManager().registerEvents(new MobDrop(), this);
 		this.getServer().getPluginManager().registerEvents(new OnClick(), this);
+		this.getServer().getPluginManager().registerEvents(new OnJoin(), this);
+		this.getServer().getPluginManager().registerEvents(new TradeForIslandCrystalInvListener(), this);
+		this.getServer().getPluginManager().registerEvents(new TradeForCashInvListener(), this);
+		this.getServer().getPluginManager().registerEvents(new TradeForExpInvListener(), this);
 		
 		if(!setupEconomy()) {
 			this.getLogger().severe("Disabled due to no Vault");
 			Bukkit.getPluginManager().disablePlugin(this);
 			return;
+		}
+		
+		if(!this.getServer().getPluginManager().isPluginEnabled("IridiumSkyblock")) {
+			System.out.println("MOBCOINS >> IRIDIUMSKYBLOCK NOT FOUND");
 		}
 		
 	}

@@ -23,15 +23,15 @@ public class MainInv {
 		for(int i=0; i<27; i++) {
 			if(i == 11) {
 				utils.itemToInventory(Material.PAPER, 
-						ChatColor.translateAlternateColorCodes('&', "&2Cash"), null, inv, i);
+						ChatColor.translateAlternateColorCodes('&', "&2Cash"), utils.getEmptyLore(), inv, i);
 			} else if(i == 13) {
 				utils.itemToInventory(Material.EXPERIENCE_BOTTLE, 
-						ChatColor.translateAlternateColorCodes('&', "&eExperience"), null, inv, i);
+						ChatColor.translateAlternateColorCodes('&', "&eExperience"), utils.getEmptyLore(), inv, i);
 			} else if(i == 15) {
 				utils.itemToInventory(Material.NETHER_STAR, 
-						ChatColor.translateAlternateColorCodes('&', "&bIsland Crystal"), null, inv, i);
+						ChatColor.translateAlternateColorCodes('&', "&bIsland Crystal"), utils.getEmptyLore(), inv, i);
 			} else {
-				utils.itemToInventory(Material.BLACK_STAINED_GLASS_PANE, " ", null, inv, i);
+				utils.itemToInventory(Material.BLACK_STAINED_GLASS_PANE, " ", utils.getEmptyLore(), inv, i);
 			}
 		}
 		p.openInventory(inv);

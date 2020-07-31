@@ -23,6 +23,7 @@ public class Utils {
 	private Economy economy = main.getEconomy();
 	private IridiumSkyblock iridium = main.getIridium();
 	private IslandManager islandManager = main.getIslandManager();
+	private List<String> emptyLore = new ArrayList<String>();
 	
 	private HashMap<String, Integer> mobCoinMap;
 	
@@ -46,9 +47,9 @@ public class Utils {
 		ItemStack item = new ItemStack(Material.SUNFLOWER);
 		ItemMeta meta = item.getItemMeta();
 		meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', 
-				"&e&l» &6&lMob Coin e&l«"));
+				"&e&l» &6&lMob Coin &e&l«"));
 		List<String> lore = new ArrayList<String>();
-		lore.add(ChatColor.translateAlternateColorCodes('&', "&7Trade in &6&lMob Coins"));
+		lore.add(ChatColor.translateAlternateColorCodes('&', "&7Trade in &6Mob Coins"));
 		lore.add(ChatColor.translateAlternateColorCodes('&', "&7for &aCash&7, &eExperience"));
 		lore.add(ChatColor.translateAlternateColorCodes('&', "&7and &bIsland Crystals"));
 		meta.setLore(listTranslate(lore));
@@ -95,6 +96,10 @@ public class Utils {
 
 	public IslandManager getIslandManager() {
 		return islandManager;
+	}
+
+	public List<String> getEmptyLore() {
+		return emptyLore;
 	}
 
 }

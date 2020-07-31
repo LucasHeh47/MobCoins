@@ -1,0 +1,11 @@
+main: me.LucasHeh.MobCoins.Main
+author: LucasHeh
+version: 1.0.0
+name: MobCoins
+depend: [Vault, IridiumSkyblock]
+api-version: 1.16
+
+commands:
+  mobcoins:
+    description: "Mobcoins"
+    aliases: "mc"

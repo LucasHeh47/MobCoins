@@ -2,11 +2,11 @@ package me.LucasHeh.MobCoins;
 
 public class Chances {
 	
-	private final int BLAZE = 4;
-	private final int ZOMBIE = 2;
-	private final int SKELETON = 3;
-	private final int IRON_GOLEM = 5;
-	private final int MOOSHROOM = 6;
+	private final int BLAZE = 3;
+	private final int ZOMBIE = 1;
+	private final int SKELETON = 2;
+	private final int IRON_GOLEM = 3;
+	private final int MOOSHROOM = 5;
 	private final int CREEPER = 2;
 	private final int WITCH = 1;
 	
