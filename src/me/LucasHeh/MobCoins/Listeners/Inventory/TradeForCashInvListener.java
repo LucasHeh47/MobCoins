@@ -31,7 +31,7 @@ public class TradeForCashInvListener implements Listener{
 		
 		int slot = e.getSlot();
 		e.setCancelled(true);
-		
+		System.out.println("click");
 		switch(slot) {
 			case 9:
 				if(utils.getMobCoinMap().get(utils.getPlayersUUID(p)) >= 1) {

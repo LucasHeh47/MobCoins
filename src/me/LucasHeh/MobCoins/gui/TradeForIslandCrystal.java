@@ -21,7 +21,7 @@ public class TradeForIslandCrystal {
 	}
 	
 	public void openInv(Player p) {
-		Inventory inv = Bukkit.createInventory(p, 27, ChatColor.translateAlternateColorCodes('&', "6MobCoins &7» &bIsland Crystals"));
+		Inventory inv = Bukkit.createInventory(p, 27, ChatColor.translateAlternateColorCodes('&', "&6MobCoins &7» &bIsland Crystals"));
 		for(int i = 0; i<27; i++) {
 			switch(i) {
 			case 9:

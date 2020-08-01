@@ -28,7 +28,7 @@ public class TradeForIslandCrystalInvListener implements Listener{
 
 		InventoryView inv = (InventoryView) p.getOpenInventory();
 		
-		if(!inv.getTitle().equals(ChatColor.translateAlternateColorCodes('&', "6MobCoins &7» &bIsland Crystals")))
+		if(!inv.getTitle().equals(ChatColor.translateAlternateColorCodes('&', "&6MobCoins &7» &bIsland Crystals")))
 			return;
 		
 		int slot = e.getSlot();

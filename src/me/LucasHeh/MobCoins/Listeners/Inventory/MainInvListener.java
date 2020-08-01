@@ -27,20 +27,23 @@ public class MainInvListener implements Listener {
 		if(!inv.getTitle().equals(ChatColor.translateAlternateColorCodes('&', "&6Trade Mob Coins")))
 			return;
 		
-		e.setCancelled(true);
 		if(item.getType() == Material.PAPER) {
+			e.setCancelled(true);
 			p.closeInventory();
 			new TradeForCash(p);
 		}
 		if(item.getType() == Material.EXPERIENCE_BOTTLE) {
+			e.setCancelled(true);
 			p.closeInventory();
 			new TradeForExp(p);
 		}
 		if(item.getType() == Material.NETHER_STAR) {
+			e.setCancelled(true);
 			p.closeInventory();
 			new TradeForIslandCrystal(p);
 		}
 		if(item.getType() == Material.GOLD_INGOT) {
+			e.setCancelled(true);
 			p.closeInventory();
 			new MobChances(p);
 		}
