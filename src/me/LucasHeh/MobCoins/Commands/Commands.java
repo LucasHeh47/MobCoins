@@ -43,7 +43,7 @@ public class Commands implements CommandExecutor {
 			}
 			return true;
 		} else {
-			if(args[0].equalsIgnoreCase("gui")) {
+			if(args[0].equalsIgnoreCase("menu")) {
 				Player p = (Player) sender;
 				new MainInv(p);
 			}

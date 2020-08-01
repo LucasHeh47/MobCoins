@@ -15,7 +15,7 @@ public class TabComplete implements TabCompleter{
 		List<String> completes = new ArrayList<String>();
 		if(args.length == 1) {
 			completes.add("give");
-			completes.add("gui");
+			completes.add("menu");
 			return completes;
 		}
 		if(args.length == 2) {

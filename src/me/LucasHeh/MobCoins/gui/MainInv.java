@@ -19,8 +19,8 @@ public class MainInv {
 	}
 	
 	public void openInv(Player p) {
-		Inventory inv = Bukkit.createInventory(p, 27, ChatColor.translateAlternateColorCodes('&', "&6Trade Mob Coins"));
-		for(int i=0; i<27; i++) {
+		Inventory inv = Bukkit.createInventory(p, 45, ChatColor.translateAlternateColorCodes('&', "&6Trade Mob Coins"));
+		for(int i=0; i<45; i++) {
 			if(i == 11) {
 				utils.itemToInventory(Material.PAPER, 
 						ChatColor.translateAlternateColorCodes('&', "&2Cash"), utils.getEmptyLore(), inv, i);
@@ -30,6 +30,9 @@ public class MainInv {
 			} else if(i == 15) {
 				utils.itemToInventory(Material.NETHER_STAR, 
 						ChatColor.translateAlternateColorCodes('&', "&bIsland Crystal"), utils.getEmptyLore(), inv, i);
+			} else if(i == 31) {
+				utils.itemToInventory(Material.GOLD_INGOT, 
+						ChatColor.translateAlternateColorCodes('&', "&6Chances for each mob"), null, inv, i);
 			} else {
 				utils.itemToInventory(Material.BLACK_STAINED_GLASS_PANE, " ", utils.getEmptyLore(), inv, i);
 			}

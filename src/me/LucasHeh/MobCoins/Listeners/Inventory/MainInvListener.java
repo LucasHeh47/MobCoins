@@ -9,6 +9,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
 
+import me.LucasHeh.MobCoins.gui.MobChances;
 import me.LucasHeh.MobCoins.gui.TradeForCash;
 import me.LucasHeh.MobCoins.gui.TradeForExp;
 import me.LucasHeh.MobCoins.gui.TradeForIslandCrystal;
@@ -27,12 +28,22 @@ public class MainInvListener implements Listener {
 			return;
 		
 		e.setCancelled(true);
-		if(item.getType() == Material.PAPER)
+		if(item.getType() == Material.PAPER) {
+			p.closeInventory();
 			new TradeForCash(p);
-		if(item.getType() == Material.EXPERIENCE_BOTTLE)
+		}
+		if(item.getType() == Material.EXPERIENCE_BOTTLE) {
+			p.closeInventory();
 			new TradeForExp(p);
-		if(item.getType() == Material.NETHER_STAR)
+		}
+		if(item.getType() == Material.NETHER_STAR) {
+			p.closeInventory();
 			new TradeForIslandCrystal(p);
+		}
+		if(item.getType() == Material.GOLD_INGOT) {
+			p.closeInventory();
+			new MobChances(p);
+		}
 		
 	}
 	

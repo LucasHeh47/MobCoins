@@ -1,12 +1,15 @@
 package me.LucasHeh.MobCoins;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -100,6 +103,30 @@ public class Utils {
 
 	public List<String> getEmptyLore() {
 		return emptyLore;
+	}
+	
+	public void saveToFile() {
+		FileConfiguration dataConfig = main.getDataConfig();
+		
+		for(Map.Entry<String, Integer> coins : mobCoinMap.entrySet()) 
+			dataConfig.set("data." + coins.getKey(), coins.getValue());
+		
+		try {
+			dataConfig.save(main.getDataFile());
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void loadFromFile() {
+		FileConfiguration dataConfig = main.getDataConfig();
+		
+		dataConfig.getConfigurationSection("data.").getKeys(false).forEach(key -> {
+			int amt = dataConfig.getInt("data." + key);
+			mobCoinMap.put(key, amt);
+		});
+		
 	}
 
 }

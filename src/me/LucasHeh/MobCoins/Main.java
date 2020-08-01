@@ -1,6 +1,10 @@
 package me.LucasHeh.MobCoins;
 
+import java.io.File;
+
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -9,10 +13,12 @@ import com.iridium.iridiumskyblock.IslandManager;
 
 import me.LucasHeh.MobCoins.Commands.Commands;
 import me.LucasHeh.MobCoins.Commands.TabComplete;
+import me.LucasHeh.MobCoins.Listeners.BlockSpawns;
 import me.LucasHeh.MobCoins.Listeners.MobDrop;
 import me.LucasHeh.MobCoins.Listeners.OnClick;
 import me.LucasHeh.MobCoins.Listeners.OnJoin;
 import me.LucasHeh.MobCoins.Listeners.Inventory.MainInvListener;
+import me.LucasHeh.MobCoins.Listeners.Inventory.MobChancesInvListener;
 import me.LucasHeh.MobCoins.Listeners.Inventory.TradeForCashInvListener;
 import me.LucasHeh.MobCoins.Listeners.Inventory.TradeForExpInvListener;
 import me.LucasHeh.MobCoins.Listeners.Inventory.TradeForIslandCrystalInvListener;
@@ -25,6 +31,9 @@ public class Main extends JavaPlugin{
 	private Economy economy;
 	private IridiumSkyblock iridium = IridiumSkyblock.getInstance();
 	private IslandManager islandManager = IridiumSkyblock.getIslandManager();
+	
+	private File dataFile = new File(getDataFolder(), "data.yml");
+	private FileConfiguration dataConfig = YamlConfiguration.loadConfiguration(dataFile);
 	
 	private Chances mobChances;
 	
@@ -43,6 +52,16 @@ public class Main extends JavaPlugin{
 		this.getServer().getPluginManager().registerEvents(new TradeForIslandCrystalInvListener(), this);
 		this.getServer().getPluginManager().registerEvents(new TradeForCashInvListener(), this);
 		this.getServer().getPluginManager().registerEvents(new TradeForExpInvListener(), this);
+		this.getServer().getPluginManager().registerEvents(new MobChancesInvListener(), this);
+		
+		//OFF THE PLUGIN IDEA
+		//BLOCKS CERTAIN MOBS FROM SPAWNING
+		this.getServer().getPluginManager().registerEvents(new BlockSpawns(), this);
+		
+		if(!dataFile.exists())
+			saveResource("data.yml", false);
+		if(dataConfig.contains("data"))
+			utils.loadFromFile();
 		
 		if(!setupEconomy()) {
 			this.getLogger().severe("Disabled due to no Vault");
@@ -57,7 +76,8 @@ public class Main extends JavaPlugin{
 	}
 	
 	public void onDisable() {
-		
+		if(!utils.getMobCoinMap().isEmpty())
+			utils.saveToFile();
 	}
 	
 	private boolean setupEconomy() {
@@ -94,6 +114,14 @@ public class Main extends JavaPlugin{
 
 	public IslandManager getIslandManager() {
 		return islandManager;
+	}
+
+	public FileConfiguration getDataConfig() {
+		return dataConfig;
+	}
+
+	public File getDataFile() {
+		return dataFile;
 	}
 
 }

@@ -35,7 +35,7 @@ public class TradeForCashInvListener implements Listener{
 		switch(slot) {
 			case 9:
 				if(utils.getMobCoinMap().get(utils.getPlayersUUID(p)) >= 1) {
-					utils.getMobCoinMap().put(utils.getPlayersUUID(p), utils.getMobCoinMap().get(utils.getPlayersUUID(p))-1);
+					utils.getMobCoinMap().put(utils.getPlayersUUID(p), utils.getMobCoinMap().get(utils.getPlayersUUID(p)).intValue()-1);
 					econ.depositPlayer(p, cashPerCoin);
 					p.getWorld().playSound(p.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.2F, 1);
 				} else {
