@@ -7,47 +7,40 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.InventoryView;
-import org.bukkit.inventory.ItemStack;
 
+import me.LucasHeh.MobCoins.gui.Menu;
 import me.LucasHeh.MobCoins.gui.MobChances;
-import me.LucasHeh.MobCoins.gui.TradeForCash;
-import me.LucasHeh.MobCoins.gui.TradeForExp;
-import me.LucasHeh.MobCoins.gui.TradeForIslandCrystal;
+import me.LucasHeh.MobCoins.gui.Trade;
 
-public class MainInvListener implements Listener {
+public class MainInvListener implements Listener{
 	
 	@EventHandler
 	public void onClick(InventoryClickEvent e) {
-		if(e.getCurrentItem() == null)
-			return;
 		Player p = (Player) e.getWhoClicked();
 		InventoryView inv = p.getOpenInventory();
-		ItemStack item = e.getCurrentItem();
 		
-		if(!inv.getTitle().equals(ChatColor.translateAlternateColorCodes('&', "&6Trade Mob Coins")))
+		if(!inv.getTitle().equals(ChatColor.translateAlternateColorCodes('&', "&6&lMob Coins Menu")))
 			return;
 		
-		if(item.getType() == Material.PAPER) {
+		if(e.getCurrentItem() == null)
+			return;
+		if(e.getCurrentItem().getType() == Material.ZOMBIE_SPAWN_EGG) {
 			e.setCancelled(true);
-			p.closeInventory();
-			new TradeForCash(p);
-		}
-		if(item.getType() == Material.EXPERIENCE_BOTTLE) {
-			e.setCancelled(true);
-			p.closeInventory();
-			new TradeForExp(p);
-		}
-		if(item.getType() == Material.NETHER_STAR) {
-			e.setCancelled(true);
-			p.closeInventory();
-			new TradeForIslandCrystal(p);
-		}
-		if(item.getType() == Material.GOLD_INGOT) {
-			e.setCancelled(true);
-			p.closeInventory();
 			new MobChances(p);
+		} else if(e.getCurrentItem().getType() == Material.SUNFLOWER) {
+			e.setCancelled(true);
+			new Trade(p);
+		} else if(e.getCurrentItem().getType() == Material.BARRIER) {
+			e.setCancelled(true);
+			p.closeInventory();
+		} else if(e.getCurrentItem().getType() == Material.ARROW) {
+			e.setCancelled(true);
+			p.closeInventory();
+			new Menu(p);
+		} else {
+			e.setCancelled(true);
 		}
 		
 	}
-	
+
 }

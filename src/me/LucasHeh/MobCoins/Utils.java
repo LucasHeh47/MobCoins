@@ -30,6 +30,10 @@ public class Utils {
 	
 	private HashMap<String, Integer> mobCoinMap;
 	
+	private int cashPerCoin = 5000, expPerCoin = 1500, crystalsPerCoin = 5;
+	
+	private String prefix = "&b&lPrimalMC » ";
+	
 	public Utils() {
 		mobCoinMap = new HashMap<String, Integer>();
 	}
@@ -85,6 +89,34 @@ public class Utils {
 		inv.setItem(slot, item);
 	}
 	
+	public ItemStack mobCoinBoosterSword() {
+		ItemStack item = new ItemStack(Material.DIAMOND_SWORD);
+		ItemMeta meta = item.getItemMeta();
+		meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&6&lMob Coin Sword"));
+		List<String> lore = new ArrayList<String>();
+		lore.add("&7Raises the chances");
+		lore.add("&7of getting a mobcoin");
+		lore.add("&7when killing a mob");
+		lore.add("&8&l(&7&l2x&8&l)");
+		meta.setLore(listTranslate(lore));
+		item.setItemMeta(meta);
+		return item;
+	}
+	
+	public ItemStack superMobCoinBoosterSword() {
+		ItemStack item = new ItemStack(Material.NETHERITE_SWORD);
+		ItemMeta meta = item.getItemMeta();
+		meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&4&lSuper Mob Coin Sword"));
+		List<String> lore = new ArrayList<String>();
+		lore.add("&7Raises the chances");
+		lore.add("&7of getting a mobcoin");
+		lore.add("&7when killing a mob");
+		lore.add("&8&l(&7&l3x&8&l)");
+		meta.setLore(listTranslate(lore));
+		item.setItemMeta(meta);
+		return item;
+	}
+	
 	public List<String> listTranslate(List<String> list){
 		List<String> converted = new ArrayList<String>();
 		for(String str : list) {
@@ -127,6 +159,34 @@ public class Utils {
 			mobCoinMap.put(key, amt);
 		});
 		
+	}
+
+	public int getCashPerCoin() {
+		return cashPerCoin;
+	}
+
+	public void setCashPerCoin(int cashPerCoin) {
+		this.cashPerCoin = cashPerCoin;
+	}
+
+	public int getExpPerCoin() {
+		return expPerCoin;
+	}
+
+	public void setExpPerCoin(int expPerCoin) {
+		this.expPerCoin = expPerCoin;
+	}
+
+	public int getCrystalsPerCoin() {
+		return crystalsPerCoin;
+	}
+
+	public void setCrystalsPerCoin(int crystalsPerCoin) {
+		this.crystalsPerCoin = crystalsPerCoin;
+	}
+
+	public String getPrefix() {
+		return prefix;
 	}
 
 }

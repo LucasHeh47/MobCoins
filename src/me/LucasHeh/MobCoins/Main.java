@@ -19,9 +19,7 @@ import me.LucasHeh.MobCoins.Listeners.OnClick;
 import me.LucasHeh.MobCoins.Listeners.OnJoin;
 import me.LucasHeh.MobCoins.Listeners.Inventory.MainInvListener;
 import me.LucasHeh.MobCoins.Listeners.Inventory.MobChancesInvListener;
-import me.LucasHeh.MobCoins.Listeners.Inventory.TradeForCashInvListener;
-import me.LucasHeh.MobCoins.Listeners.Inventory.TradeForExpInvListener;
-import me.LucasHeh.MobCoins.Listeners.Inventory.TradeForIslandCrystalInvListener;
+import me.LucasHeh.MobCoins.Listeners.Inventory.TradeInvListener;
 import net.milkbowl.vault.economy.Economy;
 
 public class Main extends JavaPlugin{
@@ -45,14 +43,12 @@ public class Main extends JavaPlugin{
 		new Commands(this);
 		getCommand("mobcoins").setTabCompleter(new TabComplete());
 		
-		this.getServer().getPluginManager().registerEvents(new MainInvListener(), this);
 		this.getServer().getPluginManager().registerEvents(new MobDrop(), this);
 		this.getServer().getPluginManager().registerEvents(new OnClick(), this);
 		this.getServer().getPluginManager().registerEvents(new OnJoin(), this);
-		this.getServer().getPluginManager().registerEvents(new TradeForIslandCrystalInvListener(), this);
-		this.getServer().getPluginManager().registerEvents(new TradeForCashInvListener(), this);
-		this.getServer().getPluginManager().registerEvents(new TradeForExpInvListener(), this);
 		this.getServer().getPluginManager().registerEvents(new MobChancesInvListener(), this);
+		this.getServer().getPluginManager().registerEvents(new TradeInvListener(), this);
+		this.getServer().getPluginManager().registerEvents(new MainInvListener(), this);
 		
 		//OFF THE PLUGIN IDEA
 		//BLOCKS CERTAIN MOBS FROM SPAWNING

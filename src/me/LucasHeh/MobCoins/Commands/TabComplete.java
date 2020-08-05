@@ -16,6 +16,7 @@ public class TabComplete implements TabCompleter{
 		if(args.length == 1) {
 			completes.add("give");
 			completes.add("menu");
+			completes.add("withdraw");
 			return completes;
 		}
 		if(args.length == 2) {
@@ -33,6 +34,8 @@ public class TabComplete implements TabCompleter{
 				completes.add("16");
 				completes.add("32");
 				completes.add("64");
+				completes.add("smcs");
+				completes.add("mcs");
 				return completes;
 			}
 		}
