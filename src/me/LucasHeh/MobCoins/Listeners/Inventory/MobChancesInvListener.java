@@ -17,12 +17,13 @@ public class MobChancesInvListener implements Listener{
 		Player p = (Player) e.getWhoClicked();
 		InventoryView inv = (InventoryView) p.getOpenInventory();
 		
-		if(inv.getTitle().equals(ChatColor.translateAlternateColorCodes('&', "&6Mob Chances")))
+		if(inv.getTitle().equals(ChatColor.translateAlternateColorCodes('&', "&6Mob Chances"))) {
 			e.setCancelled(true);
-		if(e.getCurrentItem().getType() == Material.ARROW) {
-			e.setCancelled(true);
-			p.closeInventory();
-			new Menu(p);
+			if(e.getCurrentItem().getType() == Material.ARROW) {
+				e.setCancelled(true);
+				p.closeInventory();
+				new Menu(p);
+			}
 		}
 	}
 

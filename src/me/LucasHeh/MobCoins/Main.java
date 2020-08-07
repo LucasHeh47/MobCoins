@@ -11,9 +11,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.iridium.iridiumskyblock.IridiumSkyblock;
 import com.iridium.iridiumskyblock.IslandManager;
 
+import me.LucasHeh.MobCoins.Commands.Buy;
 import me.LucasHeh.MobCoins.Commands.Commands;
 import me.LucasHeh.MobCoins.Commands.TabComplete;
 import me.LucasHeh.MobCoins.Listeners.BlockSpawns;
+import me.LucasHeh.MobCoins.Listeners.CustomDrops;
 import me.LucasHeh.MobCoins.Listeners.MobDrop;
 import me.LucasHeh.MobCoins.Listeners.OnClick;
 import me.LucasHeh.MobCoins.Listeners.OnJoin;
@@ -40,6 +42,7 @@ public class Main extends JavaPlugin{
 		mobChances = new Chances();
 		utils = new Utils();
 		
+		new Buy(this);
 		new Commands(this);
 		getCommand("mobcoins").setTabCompleter(new TabComplete());
 		
@@ -49,6 +52,9 @@ public class Main extends JavaPlugin{
 		this.getServer().getPluginManager().registerEvents(new MobChancesInvListener(), this);
 		this.getServer().getPluginManager().registerEvents(new TradeInvListener(), this);
 		this.getServer().getPluginManager().registerEvents(new MainInvListener(), this);
+		
+		// Changes drops for some mobs
+		this.getServer().getPluginManager().registerEvents(new CustomDrops(), this);
 		
 		//OFF THE PLUGIN IDEA
 		//BLOCKS CERTAIN MOBS FROM SPAWNING

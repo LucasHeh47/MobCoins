@@ -9,3 +9,6 @@ commands:
   mobcoins:
     description: "Mobcoins"
     aliases: "mc"
+  buy:
+    description: "Sends player the servers donation link"
+    aliases: ["purchase", "rank", "donate"]

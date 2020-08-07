@@ -97,7 +97,7 @@ public class Utils {
 		lore.add("&7Raises the chances");
 		lore.add("&7of getting a mobcoin");
 		lore.add("&7when killing a mob");
-		lore.add("&8&l(&7&l2x&8&l)");
+		lore.add("&7&l2.0x");
 		meta.setLore(listTranslate(lore));
 		item.setItemMeta(meta);
 		return item;
@@ -111,7 +111,7 @@ public class Utils {
 		lore.add("&7Raises the chances");
 		lore.add("&7of getting a mobcoin");
 		lore.add("&7when killing a mob");
-		lore.add("&8&l(&7&l3x&8&l)");
+		lore.add("&7&l3.0x");
 		meta.setLore(listTranslate(lore));
 		item.setItemMeta(meta);
 		return item;
@@ -135,6 +135,11 @@ public class Utils {
 
 	public List<String> getEmptyLore() {
 		return emptyLore;
+	}
+	
+	public double getMultiplierFromMobCoinSword(ItemStack item) {
+		List<String> list = item.getItemMeta().getLore();
+		return Double.parseDouble(ChatColor.stripColor(list.get(3).replace("x", " ").replace(" ", "")));
 	}
 	
 	public void saveToFile() {

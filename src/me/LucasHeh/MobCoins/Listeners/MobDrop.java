@@ -29,9 +29,9 @@ public class MobDrop implements Listener{
 		if(p == null)
 			return;
 		int result = random.nextInt(101);
-		if(p.getInventory().getItemInMainHand().getItemMeta().getLore().equals(utils.mobCoinBoosterSword().getItemMeta().getLore()))
+		if(p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(utils.mobCoinBoosterSword().getItemMeta().getDisplayName()))
 			multiplier = 2.0;
-		if(p.getInventory().getItemInMainHand().getItemMeta().getLore().equals(utils.superMobCoinBoosterSword().getItemMeta().getLore()))
+		if(p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(utils.superMobCoinBoosterSword().getItemMeta().getDisplayName()))
 			multiplier = 3.0;
 		if(e.getEntityType() == EntityType.BLAZE) {
 			if(result <= chances.getBLAZE()*multiplier) {
