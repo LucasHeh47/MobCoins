@@ -2,33 +2,33 @@ package me.LucasHeh.MobCoins;
 
 public class Chances {
 	
-	private final int BLAZE = 3;
-	private final int ZOMBIE = 1;
-	private final int SKELETON = 2;
-	private final int IRON_GOLEM = 3;
-	private final int MOOSHROOM = 5;
-	private final int CREEPER = 2;
-	private final int WITCH = 1;
+	private final double BLAZE = 1.5;
+	private final double ZOMBIE = 0.5;
+	private final double SKELETON = 0.5;
+	private final double IRON_GOLEM = 2.0;
+	private final double MOOSHROOM = 3.5;
+	private final double CREEPER = 0.75;
+	private final double WITCH = 1.0;
 	
-	public int getBLAZE() {
+	public double getBLAZE() {
 		return BLAZE;
 	}
-	public int getZOMBIE() {
+	public double getZOMBIE() {
 		return ZOMBIE;
 	}
-	public int getSKELETON() {
+	public double getSKELETON() {
 		return SKELETON;
 	}
-	public int getIRON_GOLEM() {
+	public double getIRON_GOLEM() {
 		return IRON_GOLEM;
 	}
-	public int getMOOSHROOM() {
+	public double getMOOSHROOM() {
 		return MOOSHROOM;
 	}
-	public int getCREEPER() {
+	public double getCREEPER() {
 		return CREEPER;
 	}
-	public int getWITCH() {
+	public double getWITCH() {
 		return WITCH;
 	}
 

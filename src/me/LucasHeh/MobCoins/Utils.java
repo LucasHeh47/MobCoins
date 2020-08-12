@@ -1,6 +1,7 @@
 package me.LucasHeh.MobCoins;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,9 +29,11 @@ public class Utils {
 	private IslandManager islandManager = main.getIslandManager();
 	private List<String> emptyLore = new ArrayList<String>();
 	
+	private DecimalFormat decimalFortmat = new DecimalFormat("0.0");
+	
 	private HashMap<String, Integer> mobCoinMap;
 	
-	private int cashPerCoin = 5000, expPerCoin = 1500, crystalsPerCoin = 5;
+	private int cashPerCoin = 5000, expPerCoin = 750, crystalsPerCoin = 2;
 	
 	private String prefix = "&b&lPrimalMC » ";
 	
@@ -89,7 +92,7 @@ public class Utils {
 		inv.setItem(slot, item);
 	}
 	
-	public ItemStack mobCoinBoosterSword() {
+	public ItemStack mobCoinBoosterSword(double multiplier) {
 		ItemStack item = new ItemStack(Material.DIAMOND_SWORD);
 		ItemMeta meta = item.getItemMeta();
 		meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&6&lMob Coin Sword"));
@@ -97,13 +100,13 @@ public class Utils {
 		lore.add("&7Raises the chances");
 		lore.add("&7of getting a mobcoin");
 		lore.add("&7when killing a mob");
-		lore.add("&7&l2.0x");
+		lore.add("&7&l" + multiplier + "x");
 		meta.setLore(listTranslate(lore));
 		item.setItemMeta(meta);
 		return item;
 	}
 	
-	public ItemStack superMobCoinBoosterSword() {
+	public ItemStack superMobCoinBoosterSword(double multiplier) {
 		ItemStack item = new ItemStack(Material.NETHERITE_SWORD);
 		ItemMeta meta = item.getItemMeta();
 		meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&4&lSuper Mob Coin Sword"));
@@ -111,7 +114,7 @@ public class Utils {
 		lore.add("&7Raises the chances");
 		lore.add("&7of getting a mobcoin");
 		lore.add("&7when killing a mob");
-		lore.add("&7&l3.0x");
+		lore.add("&7&l" + multiplier + "x");
 		meta.setLore(listTranslate(lore));
 		item.setItemMeta(meta);
 		return item;
@@ -192,6 +195,10 @@ public class Utils {
 
 	public String getPrefix() {
 		return prefix;
+	}
+
+	public DecimalFormat getDecimalFortmat() {
+		return decimalFortmat;
 	}
 
 }

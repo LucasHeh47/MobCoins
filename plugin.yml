@@ -12,3 +12,5 @@ commands:
   buy:
     description: "Sends player the servers donation link"
     aliases: ["purchase", "rank", "donate"]
+  vp:
+    description: "Vote party"

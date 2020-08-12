@@ -14,6 +14,7 @@ import com.iridium.iridiumskyblock.IslandManager;
 import me.LucasHeh.MobCoins.Commands.Buy;
 import me.LucasHeh.MobCoins.Commands.Commands;
 import me.LucasHeh.MobCoins.Commands.TabComplete;
+import me.LucasHeh.MobCoins.Commands.VoteParty;
 import me.LucasHeh.MobCoins.Listeners.BlockSpawns;
 import me.LucasHeh.MobCoins.Listeners.CustomDrops;
 import me.LucasHeh.MobCoins.Listeners.MobDrop;
@@ -22,6 +23,7 @@ import me.LucasHeh.MobCoins.Listeners.OnJoin;
 import me.LucasHeh.MobCoins.Listeners.Inventory.MainInvListener;
 import me.LucasHeh.MobCoins.Listeners.Inventory.MobChancesInvListener;
 import me.LucasHeh.MobCoins.Listeners.Inventory.TradeInvListener;
+import me.LucasHeh.MobCoins.Listeners.Inventory.UpgradeInvListener;
 import net.milkbowl.vault.economy.Economy;
 
 public class Main extends JavaPlugin{
@@ -43,6 +45,7 @@ public class Main extends JavaPlugin{
 		utils = new Utils();
 		
 		new Buy(this);
+		new VoteParty(this);
 		new Commands(this);
 		getCommand("mobcoins").setTabCompleter(new TabComplete());
 		
@@ -52,6 +55,7 @@ public class Main extends JavaPlugin{
 		this.getServer().getPluginManager().registerEvents(new MobChancesInvListener(), this);
 		this.getServer().getPluginManager().registerEvents(new TradeInvListener(), this);
 		this.getServer().getPluginManager().registerEvents(new MainInvListener(), this);
+		this.getServer().getPluginManager().registerEvents(new UpgradeInvListener(), this);
 		
 		// Changes drops for some mobs
 		this.getServer().getPluginManager().registerEvents(new CustomDrops(), this);

@@ -16,8 +16,8 @@ public class Buy implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
-		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "PrimalMC » &7 https://server.pro/server/14822663"));
-		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&4&lNOTE: &7Process is not automatic, let a staff know you purchased a rank"));
+		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&lPrimalMC » &7 https://server.pro/server/14822663"));
+		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&4&lNOTE: &cProcess is not automatic, let a staff know you purchased a rank"));
 		
 		return false;
 	}

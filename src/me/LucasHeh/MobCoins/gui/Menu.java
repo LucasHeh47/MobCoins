@@ -19,15 +19,18 @@ public class Menu {
 	}
 	
 	public void openInv(Player p) {
-		Inventory inv = Bukkit.createInventory(p, 27, ChatColor.translateAlternateColorCodes('&', "&6&lMob Coins Menu"));
+		Inventory inv = Bukkit.createInventory(p, 36, ChatColor.translateAlternateColorCodes('&', "&6&lMob Coins Menu"));
 		for(int i = 0 ; i < inv.getSize() ; i++) {
 			if(i == 11) {
 				utils.itemToInventory(Material.ZOMBIE_SPAWN_EGG, ChatColor.translateAlternateColorCodes('&', 
 						"&2&lMob Chances"), null, inv, i);
+			} else if(i == 13) {
+				utils.itemToInventory(Material.DIAMOND_SWORD, 
+						ChatColor.translateAlternateColorCodes('&', "&9&lUpgrade Mob Coin Swords"), null, inv, i);
 			} else if(i==15) {
 				utils.itemToInventory(Material.SUNFLOWER, ChatColor.translateAlternateColorCodes('&', 
 						"&a&lTrade in Mob Coins"), null, inv, i);
-			} else if(i==22) {
+			} else if(i==31) {
 				utils.itemToInventory(Material.BARRIER, ChatColor.RED + "Exit", null, inv, i);
 			} else {
 				utils.itemToInventory(Material.BLACK_STAINED_GLASS_PANE, " ", null, inv, i);

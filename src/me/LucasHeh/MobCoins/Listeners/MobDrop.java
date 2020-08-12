@@ -2,6 +2,8 @@ package me.LucasHeh.MobCoins.Listeners;
 
 import java.util.Random;
 
+import org.bukkit.Sound;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -28,44 +30,53 @@ public class MobDrop implements Listener{
 		Player p = e.getEntity().getKiller();
 		if(p == null)
 			return;
-		int result = random.nextInt(101);
-		if(p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(utils.mobCoinBoosterSword().getItemMeta().getDisplayName()))
-			multiplier = 2.0;
-		if(p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(utils.superMobCoinBoosterSword().getItemMeta().getDisplayName()))
-			multiplier = 3.0;
+		double result = 0 + (100 - 0) * random.nextDouble();
+		if(p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(utils.mobCoinBoosterSword(1.0).getItemMeta().getDisplayName()))
+			multiplier = utils.getMultiplierFromMobCoinSword(p.getInventory().getItemInMainHand());
+		if(p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(utils.superMobCoinBoosterSword(1.0).getItemMeta().getDisplayName()))
+			multiplier = utils.getMultiplierFromMobCoinSword(p.getInventory().getItemInMainHand());
+		if(p.getInventory().getItemInMainHand().containsEnchantment(Enchantment.LOOT_BONUS_MOBS)) {
+			multiplier += p.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS)*0.5;
+		}
 		if(e.getEntityType() == EntityType.BLAZE) {
 			if(result <= chances.getBLAZE()*multiplier) {
+				e.getEntity().getWorld().playSound(e.getEntity().getLocation(), Sound.ENTITY_CHICKEN_EGG, 3.0F, 0.5F);
 				e.getDrops().add(utils.mobCoinItem());
 				return;
 			}
 		} else if(e.getEntityType() == EntityType.ZOMBIE) {
 			if(result <= chances.getZOMBIE()*multiplier) {
-				p.getInventory().addItem(utils.mobCoinItem());
+				e.getEntity().getWorld().playSound(e.getEntity().getLocation(), Sound.ENTITY_CHICKEN_EGG, 3.0F, 0.5F);
+				e.getDrops().add(utils.mobCoinItem());
 				return;
 			}
 		} else if(e.getEntityType() == EntityType.SKELETON) {
 			if(result <= chances.getSKELETON()*multiplier) {
-				p.getInventory().addItem(utils.mobCoinItem());
+				e.getEntity().getWorld().playSound(e.getEntity().getLocation(), Sound.ENTITY_CHICKEN_EGG, 3.0F, 0.5F);
+				e.getDrops().add(utils.mobCoinItem());
 				return;
 			}
 		} else if(e.getEntityType() == EntityType.IRON_GOLEM) {
 			if(result <= chances.getIRON_GOLEM()*multiplier) {
-				p.getInventory().addItem(utils.mobCoinItem());
+				e.getDrops().add(utils.mobCoinItem());
 				return;
 			}
 		} else if(e.getEntityType() == EntityType.MUSHROOM_COW) {
 			if(result <= chances.getMOOSHROOM()*multiplier) {
-				p.getInventory().addItem(utils.mobCoinItem());
+				e.getEntity().getWorld().playSound(e.getEntity().getLocation(), Sound.ENTITY_CHICKEN_EGG, 3.0F, 0.5F);
+				e.getDrops().add(utils.mobCoinItem());
 				return;
 			}
 		} else if(e.getEntityType() == EntityType.CREEPER) {
 			if(result <= chances.getCREEPER()*multiplier) {
-				p.getInventory().addItem(utils.mobCoinItem());
+				e.getEntity().getWorld().playSound(e.getEntity().getLocation(), Sound.ENTITY_CHICKEN_EGG, 3.0F, 0.5F);
+				e.getDrops().add(utils.mobCoinItem());
 				return;
 			}
 		} else if(e.getEntityType() == EntityType.WITCH) {
 			if(result <= chances.getWITCH()*multiplier) {
-				p.getInventory().addItem(utils.mobCoinItem());
+				e.getEntity().getWorld().playSound(e.getEntity().getLocation(), Sound.ENTITY_CHICKEN_EGG, 3.0F, 0.5F);
+				e.getDrops().add(utils.mobCoinItem());
 				return;
 			}
 		}
