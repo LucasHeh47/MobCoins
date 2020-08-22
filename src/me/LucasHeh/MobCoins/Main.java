@@ -13,6 +13,7 @@ import com.iridium.iridiumskyblock.IslandManager;
 
 import me.LucasHeh.MobCoins.Commands.Buy;
 import me.LucasHeh.MobCoins.Commands.Commands;
+import me.LucasHeh.MobCoins.Commands.CustomEnchantList;
 import me.LucasHeh.MobCoins.Commands.TabComplete;
 import me.LucasHeh.MobCoins.Commands.VoteParty;
 import me.LucasHeh.MobCoins.Listeners.BlockSpawns;
@@ -44,6 +45,7 @@ public class Main extends JavaPlugin{
 		mobChances = new Chances();
 		utils = new Utils();
 		
+		new CustomEnchantList(this);
 		new Buy(this);
 		new VoteParty(this);
 		new Commands(this);

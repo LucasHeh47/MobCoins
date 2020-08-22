@@ -28,7 +28,7 @@ public class VoteParty implements CommandExecutor {
 		} else {
 			Random random = new Random();
 			for(Player p : Bukkit.getOnlinePlayers()) {
-				int keys = random.nextInt(3)+1;
+				int keys = random.nextInt(4)+1;
 				for(int i = 0; i < keys ; i++) {
 					int type = random.nextInt(101);
 					if(type <= 50)

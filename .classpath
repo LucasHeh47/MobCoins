@@ -5,5 +5,6 @@
 	<classpathentry kind="lib" path="C:/Users/darth/Desktop/Spigot Buildtools/spigot-1.16.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/darth/Desktop/Spigot Buildtools/Vault.jar"/>
 	<classpathentry kind="lib" path="C:/Users/darth/Desktop/Spigot Buildtools/IridiumSkyblock-2.4.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/darth/Downloads/GE266/GoldenEnchants.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

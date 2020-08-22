@@ -41,6 +41,10 @@ public class Utils {
 		mobCoinMap = new HashMap<String, Integer>();
 	}
 	
+	public boolean isSword(ItemStack is){
+		return is.getType().name().contains("SWORD");
+	}
+	
 	public Player getPlayerByUUID(String uuid) {
 		return Bukkit.getPlayer(uuid);
 	}
