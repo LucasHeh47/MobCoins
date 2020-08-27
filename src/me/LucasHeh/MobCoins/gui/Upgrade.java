@@ -1,5 +1,8 @@
 package me.LucasHeh.MobCoins.gui;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -29,7 +32,8 @@ public class Upgrade {
 						ChatColor.translateAlternateColorCodes('&', "&a&lPlace 2 of the same multiplier swords here"), null, inv, i);
 			} else if(i == 40) {
 				utils.itemToInventory(Material.EMERALD, 
-						ChatColor.translateAlternateColorCodes('&', "&aUpgrade"), null, inv, i);
+						ChatColor.translateAlternateColorCodes('&', "&aUpgrade"), new ArrayList<>(Arrays.asList(ChatColor.translateAlternateColorCodes('&', "&7If you want to keep enchantments"), 
+								ChatColor.translateAlternateColorCodes('&', "&7put sword with enchantments on the Left"))), inv, i);
 			} else if(i == 43 || i == 37) {
 				
 			} else {

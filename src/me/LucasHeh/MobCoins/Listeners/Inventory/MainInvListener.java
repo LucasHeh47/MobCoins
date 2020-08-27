@@ -10,6 +10,7 @@ import org.bukkit.inventory.InventoryView;
 
 import me.LucasHeh.MobCoins.gui.Menu;
 import me.LucasHeh.MobCoins.gui.MobChances;
+import me.LucasHeh.MobCoins.gui.MobCoinShop;
 import me.LucasHeh.MobCoins.gui.Trade;
 import me.LucasHeh.MobCoins.gui.Upgrade;
 
@@ -42,6 +43,10 @@ public class MainInvListener implements Listener{
 			e.setCancelled(true);
 			p.closeInventory();
 			new Upgrade(p);
+		} else if(e.getCurrentItem().getType() == Material.EMERALD) {
+			e.setCancelled(true);
+			p.closeInventory();
+			new MobCoinShop(p);
 		} else {
 			e.setCancelled(true);
 		}

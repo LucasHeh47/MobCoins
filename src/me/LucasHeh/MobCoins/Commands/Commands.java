@@ -60,7 +60,7 @@ public class Commands implements CommandExecutor {
 					return true;
 				if(args[2].equalsIgnoreCase("mcs")) {
 					Player target = Bukkit.getPlayer(args[1]);
-					target.getInventory().addItem(utils.mobCoinBoosterSword(1.0));
+					target.getInventory().addItem(utils.mobCoinBoosterSword(2.0));
 					sender.sendMessage(ChatColor.AQUA + "Mob Coin Sword given");
 					target.sendMessage(ChatColor.translateAlternateColorCodes('&', 
 							"&b&lPrimalMC » &7You have been given a Mob Coin Sword"));
@@ -68,7 +68,7 @@ public class Commands implements CommandExecutor {
 				}
 				if(args[2].equalsIgnoreCase("smcs")) {
 					Player target = Bukkit.getPlayer(args[1]);
-					target.getInventory().addItem(utils.superMobCoinBoosterSword(1.0));
+					target.getInventory().addItem(utils.superMobCoinBoosterSword(2.0));
 					sender.sendMessage(ChatColor.AQUA + "Super Mob Coin Sword given");
 					target.sendMessage(ChatColor.translateAlternateColorCodes('&', 
 							"&b&lPrimalMC » &7You have been given a Super Mob Coin Sword"));

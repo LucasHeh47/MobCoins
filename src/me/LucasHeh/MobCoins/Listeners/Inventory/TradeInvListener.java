@@ -14,6 +14,7 @@ import com.iridium.iridiumskyblock.User;
 
 import me.LucasHeh.MobCoins.Main;
 import me.LucasHeh.MobCoins.Utils;
+import me.LucasHeh.MobCoins.gui.Menu;
 
 public class TradeInvListener implements Listener{
 	
@@ -71,6 +72,9 @@ public class TradeInvListener implements Listener{
 					User.getUser(p).getIsland().setCrystals(User.getUser(p).getIsland().getCrystals()+(amount*utils.getCrystalsPerCoin()));
 					p.closeInventory();
 				}
+			} else if(e.getCurrentItem().getType() == Material.ARROW) {
+				p.closeInventory();
+				new Menu(p);
 			}
 		}
 		

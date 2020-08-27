@@ -3,6 +3,7 @@ package me.LucasHeh.MobCoins;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,8 +12,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -40,7 +43,7 @@ public class Utils {
 	public Utils() {
 		mobCoinMap = new HashMap<String, Integer>();
 	}
-	
+
 	public boolean isSword(ItemStack is){
 		return is.getType().name().contains("SWORD");
 	}
@@ -106,6 +109,25 @@ public class Utils {
 		lore.add("&7when killing a mob");
 		lore.add("&7&l" + multiplier + "x");
 		meta.setLore(listTranslate(lore));
+		meta.setUnbreakable(true);
+		item.setItemMeta(meta);
+		return item;
+	}
+	
+	public ItemStack mobCoinBoosterSword(double multiplier, Map<Enchantment, Integer> enchantments) {
+		ItemStack item = new ItemStack(Material.DIAMOND_SWORD);
+		ItemMeta meta = item.getItemMeta();
+		meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&6&lMob Coin Sword"));
+		List<String> lore = new ArrayList<String>();
+		lore.add("&7Raises the chances");
+		lore.add("&7of getting a mobcoin");
+		lore.add("&7when killing a mob");
+		lore.add("&7&l" + multiplier + "x");
+		meta.setLore(listTranslate(lore));
+		if(enchantments != null)
+			for(Map.Entry<Enchantment, Integer> enchant : enchantments.entrySet())
+				meta.addEnchant(enchant.getKey(), enchant.getValue(), true);
+		meta.setUnbreakable(true);
 		item.setItemMeta(meta);
 		return item;
 	}
@@ -120,6 +142,25 @@ public class Utils {
 		lore.add("&7when killing a mob");
 		lore.add("&7&l" + multiplier + "x");
 		meta.setLore(listTranslate(lore));
+		meta.setUnbreakable(true);
+		item.setItemMeta(meta);
+		return item;
+	}
+	
+	public ItemStack superMobCoinBoosterSword(double multiplier, Map<Enchantment, Integer> enchantments) {
+		ItemStack item = new ItemStack(Material.NETHERITE_SWORD);
+		ItemMeta meta = item.getItemMeta();
+		meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&4&lSuper Mob Coin Sword"));
+		List<String> lore = new ArrayList<String>();
+		lore.add("&7Raises the chances");
+		lore.add("&7of getting a mobcoin");
+		lore.add("&7when killing a mob");
+		lore.add("&7&l" + multiplier + "x");
+		meta.setLore(listTranslate(lore));
+		if(enchantments != null)
+			for(Map.Entry<Enchantment, Integer> enchant : enchantments.entrySet())
+				meta.addEnchant(enchant.getKey(), enchant.getValue(), true);
+		meta.setUnbreakable(true);
 		item.setItemMeta(meta);
 		return item;
 	}
@@ -144,9 +185,30 @@ public class Utils {
 		return emptyLore;
 	}
 	
+	public ItemStack dragonBreathFragment(int amount) {
+		ItemStack item = new ItemStack(Material.POPPED_CHORUS_FRUIT);
+		ItemMeta meta = item.getItemMeta();
+		meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&4&lDragon Breath Fragment"));
+		meta.addEnchant(Enchantment.DURABILITY, 1, true);
+		meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+		meta.setLore(listTranslate(new ArrayList<String>(Arrays.asList(ChatColor.translateAlternateColorCodes('&', "&7Use this to craft &4&lDragon Breath")))));
+		item.setItemMeta(meta);
+		item.setAmount(amount);
+		return item;
+	}
+	
+	public ItemStack dragonBreathEssence() {
+		ItemStack item = new ItemStack(Material.DRAGON_BREATH);
+		ItemMeta meta = item.getItemMeta();
+		meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&5&lDragon Breath Essence"));
+		meta.setLore(listTranslate(new ArrayList<String>(Arrays.asList(ChatColor.translateAlternateColorCodes('&', "&7Use this to craft &4&lDragon Breath")))));
+		item.setItemMeta(meta);
+		return item;
+	}
+	
 	public double getMultiplierFromMobCoinSword(ItemStack item) {
 		List<String> list = item.getItemMeta().getLore();
-		return Double.parseDouble(ChatColor.stripColor(list.get(3).replace("x", " ").replace(" ", "")));
+		return Double.parseDouble(ChatColor.stripColor(list.get(list.size()-1).replace("x", " ").replace(" ", "")));
 	}
 	
 	public void saveToFile() {
@@ -161,6 +223,51 @@ public class Utils {
 			e.printStackTrace();
 		}
 		
+	}
+
+	public ItemStack zombieBossEgg() {
+		ItemStack item = new ItemStack(Material.ZOMBIE_SPAWN_EGG);
+		ItemMeta meta = item.getItemMeta();
+		meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&2&lZombie Boss"));
+		List<String> lore = new ArrayList<String>();
+		lore.add("&7Armor: Protection 500 Diamond Armor");
+		lore.add("&7Weapon: Sharpness 100 Diamond Sword");
+		lore.add("&7Health: 200 HP");
+		lore.add(" ");
+		lore.add("&7Spawn bosses in the Warzone!");
+		meta.setLore(listTranslate(lore));
+		item.setItemMeta(meta);
+		return item;
+	}
+	
+	public ItemStack skeletonBossEgg() {
+		ItemStack item = new ItemStack(Material.SKELETON_SPAWN_EGG);
+		ItemMeta meta = item.getItemMeta();
+		meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&7&lSkeleton Boss"));
+		List<String> lore = new ArrayList<String>();
+		lore.add("&7Armor: Protection 300 Diamond Armor");
+		lore.add("&7Weapon: Power 75, Flame 1 Bow");
+		lore.add("&7Health: 200 HP");
+		lore.add(" ");
+		lore.add("&7Spawn bosses in the Warzone!");
+		meta.setLore(listTranslate(lore));
+		item.setItemMeta(meta);
+		return item;
+	}
+	
+	public ItemStack witherSkeletonBossEgg() {
+		ItemStack item = new ItemStack(Material.WITHER_SKELETON_SPAWN_EGG);
+		ItemMeta meta = item.getItemMeta();
+		meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&cWither Skeleton Boss"));
+		List<String> lore = new ArrayList<String>();
+		lore.add("&7Armor: Protection 350 Netherite Armor");
+		lore.add("&7Weapon: Sharpness 100 Netherite Sword");
+		lore.add("&7Health: 250 HP");
+		lore.add(" ");
+		lore.add("&7Spawn bosses in the Warzone!");
+		meta.setLore(lore);
+		item.setItemMeta(meta);
+		return item;
 	}
 	
 	public void loadFromFile() {

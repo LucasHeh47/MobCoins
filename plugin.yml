@@ -16,3 +16,14 @@ commands:
     description: "Vote party"
   el:
     description: "Enchantment List"
+  warzone:
+    description: "Teleport to warzone"
+    aliases: ["pvp", "fight", "wz"]
+  boss:
+    description: "bosses"
+    aliases: ["bosses", "bossegg"]
+  blacksmith:
+    description: "blacksmith"
+  artisan:
+    description: "artisan"
+    aliases: ["customcraft", "cc"]
