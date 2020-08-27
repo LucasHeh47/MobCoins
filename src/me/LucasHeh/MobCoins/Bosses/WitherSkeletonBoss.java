@@ -44,7 +44,7 @@ public class WitherSkeletonBoss extends Boss implements Listener {
 				WitherSkeleton boss = location.getWorld().spawn(location, WitherSkeleton.class);
 				e.getPlayer().getInventory().remove(utils.witherSkeletonBossEgg());
 				boss.setCustomName(ChatColor.translateAlternateColorCodes('&', "&2&lZombie Boss"));
-				boss.setMaxHealth(200.0);
+				boss.setMaxHealth(250.0);
 				boss.setHealth(250.0);
 				
 				boss.setCustomNameVisible(true);

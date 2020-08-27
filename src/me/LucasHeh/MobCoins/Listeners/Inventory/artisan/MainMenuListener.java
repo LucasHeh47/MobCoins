@@ -10,6 +10,7 @@ import org.bukkit.inventory.InventoryView;
 
 import me.LucasHeh.MobCoins.Main;
 import me.LucasHeh.MobCoins.Utils;
+import me.LucasHeh.MobCoins.gui.artisan.DragonBreath;
 import me.LucasHeh.MobCoins.gui.artisan.DragonBreathEssence;
 
 public class MainMenuListener implements Listener{
@@ -34,7 +35,8 @@ public class MainMenuListener implements Listener{
 		}
 		if(e.getCurrentItem().getType() == Material.BLAZE_ROD && e.getCurrentItem().getItemMeta()
 				.getDisplayName().equals(main.getItemJoin().getItemStack(p, "dragonbreath").getItemMeta().getDisplayName())) {
-			p.sendMessage(ChatColor.translateAlternateColorCodes('&', utils.getPrefix() + "&cRecipe coming soon"));
+			p.closeInventory();
+			new DragonBreath(p);
 		}
 	}
 

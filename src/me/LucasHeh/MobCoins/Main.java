@@ -27,6 +27,7 @@ import me.LucasHeh.MobCoins.Commands.Warzone;
 import me.LucasHeh.MobCoins.Listeners.BlockSpawns;
 import me.LucasHeh.MobCoins.Listeners.CustomDrops;
 import me.LucasHeh.MobCoins.Listeners.DisabledAnvils;
+import me.LucasHeh.MobCoins.Listeners.FireBallDamage;
 import me.LucasHeh.MobCoins.Listeners.MobDrop;
 import me.LucasHeh.MobCoins.Listeners.OnClick;
 import me.LucasHeh.MobCoins.Listeners.OnJoin;
@@ -37,6 +38,7 @@ import me.LucasHeh.MobCoins.Listeners.Inventory.MobCoinShopListener;
 import me.LucasHeh.MobCoins.Listeners.Inventory.TradeInvListener;
 import me.LucasHeh.MobCoins.Listeners.Inventory.UpgradeInvListener;
 import me.LucasHeh.MobCoins.Listeners.Inventory.artisan.DragonBreathEssenceInvListener;
+import me.LucasHeh.MobCoins.Listeners.Inventory.artisan.DragonBreathInvListener;
 import me.LucasHeh.MobCoins.Listeners.Inventory.artisan.MainMenuListener;
 import me.RockinChaos.itemjoin.api.ItemJoinAPI;
 import net.milkbowl.vault.economy.Economy;
@@ -77,6 +79,9 @@ public class Main extends JavaPlugin{
 		this.getServer().getPluginManager().registerEvents(new UpgradeInvListener(), this);
 		this.getServer().getPluginManager().registerEvents(new MobCoinShopListener(), this);
 		
+		//Buff Fireballs
+		this.getServer().getPluginManager().registerEvents(new FireBallDamage(), this);
+		
 		//Disabled Anvils
 		this.getServer().getPluginManager().registerEvents(new DisabledAnvils(), this);
 		
@@ -88,6 +93,7 @@ public class Main extends JavaPlugin{
 		new Artisan(this);
 		this.getServer().getPluginManager().registerEvents(new DragonBreathEssenceInvListener(), this);
 		this.getServer().getPluginManager().registerEvents(new MainMenuListener(), this);
+		this.getServer().getPluginManager().registerEvents(new DragonBreathInvListener(), this);
 		
 		//Bossses
 		this.getServer().getPluginManager().registerEvents(new ZombieBoss(), this);
