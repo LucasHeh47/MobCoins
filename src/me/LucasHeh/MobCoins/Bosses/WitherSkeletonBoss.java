@@ -108,7 +108,7 @@ public class WitherSkeletonBoss extends Boss implements Listener {
 			e.getDrops().add(new ItemStack(Material.NETHERITE_INGOT, random.nextInt(17)));
 			e.getDrops().add(new ItemStack(Material.EMERALD, random.nextInt(257)));
 			e.getDrops().add(new ItemStack(Material.DIAMOND, random.nextInt(513)));
-			Bukkit.dispatchCommand(main.getServer().getConsoleSender(), "crates givekey " + e.getEntity().getKiller().getName() + " legendary 1");
+			Bukkit.dispatchCommand(main.getServer().getConsoleSender(), "crates givekey " + e.getEntity().getKiller().getName() + " champion 1");
 		}
 	}
 

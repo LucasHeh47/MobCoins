@@ -107,7 +107,7 @@ public class ZombieBoss extends Boss implements Listener{
 			e.getDrops().add(new ItemStack(Material.NETHERITE_SCRAP, random.nextInt(25)));
 			e.getDrops().add(new ItemStack(Material.EMERALD, random.nextInt(33)));
 			e.getDrops().add(new ItemStack(Material.DIAMOND, random.nextInt(65)));
-			Bukkit.dispatchCommand(main.getServer().getConsoleSender(), "crates givekey " + e.getEntity().getKiller().getName() + " legendary 1");
+			Bukkit.dispatchCommand(main.getServer().getConsoleSender(), "crates givekey " + e.getEntity().getKiller().getName() + " champion 1");
 		}
 	}
 

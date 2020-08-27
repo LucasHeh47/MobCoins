@@ -112,7 +112,7 @@ public class SkeletonBoss extends Boss implements Listener{
 			e.getDrops().add(new ItemStack(Material.NETHERITE_SCRAP, random.nextInt(65)));
 			e.getDrops().add(new ItemStack(Material.EMERALD, random.nextInt(129)));
 			e.getDrops().add(new ItemStack(Material.DIAMOND, random.nextInt(257)));
-			Bukkit.dispatchCommand(main.getServer().getConsoleSender(), "crates givekey " + e.getEntity().getKiller().getName() + " legendary 1");
+			Bukkit.dispatchCommand(main.getServer().getConsoleSender(), "crates givekey " + e.getEntity().getKiller().getName() + " champion 1");
 		}
 	}
 
